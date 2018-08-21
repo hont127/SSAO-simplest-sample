@@ -86,6 +86,7 @@ Shader "Hidden/SSAO"
 
 					float zd = saturate(depth - sampleD);
 					if (zd > _Params.y)
+					//if (zd > _Params.y && zd < _Params.y*2) /*实际场景中可以再加一个约束，不过毕竟是学习之用，不考虑这么多*/
 						occ += zd;
 					//计算采样UV和原始UV获得深度图的差，加在OCC上。但如果差小于阈值则忽略。
 				}
